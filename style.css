@@ -43,15 +43,15 @@ section {
             "padding-left sidebar info info";
 }
 
-#container > .header {
+#container > #header {
     grid-area: header;
 }
 
-#container > .padding-left {
+#container > #padding-left {
     grid-area: padding-left;
 }
 
-#container > .sidebar {
+#container > #sidebar {
     grid-area: sidebar;
 }
 
@@ -68,11 +68,11 @@ section {
     grid-area: info;
 }
 
-#container > .padding-right-1 {
+#container > #padding-right-1 {
     grid-area: padding-right-1;
 }
 
-#container > .padding-right-2 {
+#container > #padding-right-2 {
     grid-area: padding-right-2;
 }
 
@@ -106,7 +106,7 @@ section {
     justify-content: space-between;
 }
 
-.sidebar::before, #title-1::before {
+#sidebar::before, #title-1::before {
     position: absolute;
     z-index: 1;
     top: 0;
@@ -143,11 +143,11 @@ span::before {
     color: #FFFFFF;
 }
 
-.sidebar > div {
+#sidebar > div {
     float: left;
 }
 
-.padding-right-1::after, .padding-right-2::after {
+#padding-right-1::after, #padding-right-2::after {
     position: absolute;
     z-index: -1;
     left: 0;
