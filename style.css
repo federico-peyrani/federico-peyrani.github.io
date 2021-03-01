@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
+@import "typography.css";
+
+:root {
+    --color-primary: #002AFF;
+    --color-secondary: #fff0ad;
+    --color-background: #212121;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: fit-content;
+    background-color: var(--color-background);
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    scroll-behavior: smooth;
+}
+
+#container {
+    height: 100%;
+    grid-auto-columns: 10% 20% 60% 10%;
+    grid-auto-rows: auto;
+    grid-template-areas:
+            "header header header padding-right-1"
+            "padding-left sidebar title-1 padding-right-1"
+            "padding-left sidebar title-2 padding-right-2"
+            "padding-left sidebar info info";
+}
+
+#container > .header {
+    grid-area: header;
+}
+
+#container > .padding-left {
+    grid-area: padding-left;
+}
+
+#container > .sidebar {
+    grid-area: sidebar;
+}
+
+#container > #title-1 {
+    grid-area: title-1;
+}
+
+#container > #title-2 {
+    grid-area: title-2;
+}
+
+#container > #info {
+    margin-top: 80px;
+    grid-area: info;
+}
+
+#container > .padding-right-1 {
+    grid-area: padding-right-1;
+}
+
+#container > .padding-right-2 {
+    grid-area: padding-right-2;
+}
+
+.navbar {
+    overflow: auto;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.navbar ul {
+    display: flex; /* horizontal orientation of <li> */
+}
+
+.navbar a {
+    margin: 0 16px 0 16px;
+    color: #FFFFFF;
+}
+
+.navbar a:hover {
+    border-bottom: 2px #FFFFFF solid;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.navbar .flex {
+    justify-content: space-between;
+}
+
+.sidebar::before, #title-1::before {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    display: block;
+    width: 2px;
+    height: 100%;
+    content: "";
+    transform: translateX(-50%);
+    background-image: linear-gradient(transparent 33%, var(--color-primary) 0%);
+    background-repeat: repeat-y;
+    background-position: right;
+    background-size: 20px 20px;
+}
+
+#avatar {
+    z-index: 0;
+    width: 80%;
+    margin-top: 80px;
+}
+
+span::before {
+    display: inline-block;
+    height: 100%;
+    content: '';
+}
+
+.title > span {
+    font-size: 144px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 190px;
+    margin-left: -0.07em;
+    vertical-align: baseline;
+    color: #FFFFFF;
+}
+
+.sidebar > div {
+    float: left;
+}
+
+.padding-right-1::after, .padding-right-2::after {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    content: '';
+    background-color: var(--color-secondary);
+}
+
+.line.horizontal {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+}
+
+.line.vertical {
+    width: 2px;
+    height: 100%;
+    background-color: var(--color-secondary);
+}
+
+.line.baseline {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+    background-color: var(--color-secondary);
+}
+
+.mark {
+    z-index: 2;
+}
+
+.line.horizontal > .mark {
+    width: 2px;
+    height: 40px;
+}
+
+.line.vertical > .mark {
+    width: 40px;
+    height: 2px;
+}
+
+.line.horizontal > .mark.left {
+    float: left;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: var(--color-primary);
+}
+
+.line.horizontal > .mark.right {
+    float: right;
+    transform: translateX(50%) translateY(-50%);
+    background-color: var(--color-primary);
+}
+
+.line.vertical > .mark.left {
+    position: relative;
+    top: 0;
+    transform: translateX(-50%);
+    background-image: linear-gradient(to right, transparent 33%, var(--color-secondary) 0%);
+    background-repeat: repeat-x;
+    background-position: right;
+    background-size: 8px 8px;
+}
+
+.line.vertical > .mark.right {
+    position: relative;
+    top: 100%;
+    transform: translateX(-50%) translateY(-200%);
+    background-image: linear-gradient(to right, transparent 33%, var(--color-secondary) 0%);
+    background-repeat: repeat-x;
+    background-position: right;
+    background-size: 8px 8px;
+}
+
+.line.horizontal > .label {
+    position: relative;
+    left: 50%;
+    float: left;
+    width: fit-content;
+    padding: 2px;
+    transform: translateX(-50%) translateY(-50%);
+    color: #FFFFFF;
+    background-color: var(--color-primary);
+}
+
+.line.vertical > .label {
+    position: relative;
+    top: 50%;
+    float: left;
+    width: fit-content;
+    padding: 2px;
+    transform: translateX(-50%) translateY(-50%);
+    color: var(--color-background);
+    background-color: var(--color-secondary);
+}
