@@ -10,10 +10,14 @@ h1 {
     color: #FFFFFF;
 }
 
-p {
+h2 {
     font-size: 24px;
     font-weight: normal;
     font-style: normal;
     line-height: 32px;
     color: rgba(255, 255, 255, 0.56);
+}
+
+a {
+    line-height: 32px;
 }
