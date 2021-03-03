@@ -262,22 +262,31 @@ section {
 }
 
 #about {
-    height: 400px;
+    padding: 64px;
     color: var(--color-background);
     background-color: #FFFFFF;
 }
 
 #contacts {
     line-height: 40px;
-    height: 400px;
+    padding: 64px;
     text-align: center;
     color: #FFFFFF;
     background-color: var(--color-primary);
+}
+
+li > * {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .box {
     position: relative;
     top: 50%;
     left: 50%;
+    transform: translateX(-50%);
+}
+
+#info > .box {
     transform: translateX(-50%) translateY(-50%);
 }
