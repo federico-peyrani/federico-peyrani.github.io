@@ -64,6 +64,8 @@ section {
 }
 
 #container > #info {
+    margin-top: 64px;
+    margin-bottom: 64px;
     grid-area: info;
 }
 
