@@ -11,92 +11,125 @@
     <link rel="stylesheet" href="css/style.css">
     <script type="module" src="js/script.js" async></script>
     <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DPBDZWFQQF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-DPBDZWFQQF');
+    </script>
 </head>
 <body>
-<div id="container">
-    <div id="header">
-        <div class="navbar flex">
-            <nav>
+<div class="debug">
+    <label><input type="checkbox"> Behind the scenes</label>
+</div>
+<div class="parallax">
+    <div id="splash" class="parallax__group">
+        <div id="container" class="parallax__layer parallax__layer--base">
+            <div id="header">
+                <div class="navbar flex">
+                    <nav>
+                        <ul>
+                            <li><a href="#about">ABOUT</a></li>
+                            <li><a href="#contacts">CONTACTS</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div id="padding-left">
+                <div class="line horizontal">
+                    <div class="mark left"></div>
+                    <div class="label"></div>
+                    <div class="mark right"></div>
+                </div>
+            </div>
+
+            <div id="sidebar">
+                <div class="line horizontal">
+                    <div class="mark left"></div>
+                    <div class="label"></div>
+                    <div class="mark right"></div>
+                </div>
+                <div class="avatar">
+                    <img src="https://media-exp1.licdn.com/dms/image/C5603AQHHQedmnA1bDQ/profile-displayphoto-shrink_400_400/0/1569593998654?e=1620259200&v=beta&t=59I1UEs3Aj_wKBOSnSYgFTpS8SaVJcoexpV5tQ8DL3E"
+                         alt="Avatar"/>
+                </div>
+            </div>
+
+            <div id="title-1" class="title">
+                <svg viewBox="1 0 80 14" preserveAspectRatio="xMinYMax meet" overflow="visible">
+                    <text class="title-text" x="0" y="14">Federico</text>
+                </svg>
+            </div>
+            <div id="title-2" class="title">
+                <svg viewBox="1 0 80 14" preserveAspectRatio="xMinYMax meet" overflow="visible">
+                    <text class="title-text" x="0" y="14">Peyrani</text>
+                </svg>
+            </div>
+
+            <div id="padding-right-1">
+                <div class="line vertical">
+                    <div class="mark left"></div>
+                    <div class="label"></div>
+                    <div class="mark right"></div>
+                </div>
+            </div>
+            <div id="padding-right-2">
+                <div class="line vertical">
+                    <div class="mark left"></div>
+                    <div class="label"></div>
+                    <div class="mark right"></div>
+                </div>
+            </div>
+
+            <div id="info">
+                <div class="box">
+                    <h2>Computer Science Engineer</h2>
+                    <h2>Graduated at Politecnico di Milano</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="parallax__group">
+        <div class="parallax__layer parallax__layer--base">
+            <div class="box">
+                <p>My name is Federico Peyrani, I'm a computer science and engineer with a keen interest for design,
+                    skillful in
+                    Java and most notably Kotlin. I'm currently pursuing the master level degree in Computer Science and
+                    Engineering at Politecnico di Milano, Italy.</p>
+            </div>
+        </div>
+        <div class="parallax__layer parallax__layer--back">
+            <svg viewBox="0 0 800 200"
+                 preserveAspectRatio="xMinYMax meet" overflow="visible">
+                <text class="parallax__text parallax__text--dark" x="0" y="200">ABOUT</text>
+            </svg>
+        </div>
+    </div>
+
+    <div id="contacts" class="parallax__group">
+        <div class="parallax__layer parallax__layer--base">
+            <div class="box">
                 <ul>
-                    <li><a href="#about">ABOUT</a></li>
-                    <li><a href="#contacts">CONTACTS</a></li>
+                    <li>
+                        <i class="im im-github"></i>
+                        <a href="https://github.com/federico-peyrani" target="_blank"
+                           rel="noreferrer">github.com/federico-peyrani</a>
+                    </li>
+                    <li>
+                        <i class="im im-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/federicopeyrani/" target="_blank" rel="noreferrer">linkedin.com/in/federicopeyrani</a>
+                    </li>
                 </ul>
-            </nav>
+            </div>
         </div>
     </div>
-
-    <div id="padding-left">
-        <div class="line horizontal">
-            <div class="mark left"></div>
-            <div class="label"></div>
-            <div class="mark right"></div>
-        </div>
-    </div>
-
-    <div id="sidebar">
-        <div class="line horizontal">
-            <div class="mark left"></div>
-            <div class="label"></div>
-            <div class="mark right"></div>
-        </div>
-        <div class="avatar">
-            <img src="https://media-exp1.licdn.com/dms/image/C5603AQHHQedmnA1bDQ/profile-displayphoto-shrink_400_400/0/1569593998654?e=1620259200&v=beta&t=59I1UEs3Aj_wKBOSnSYgFTpS8SaVJcoexpV5tQ8DL3E"
-                 alt="Avatar"/>
-        </div>
-    </div>
-
-    <div id="title-1" class="title">
-        <svg viewBox="1 0 80 18" preserveAspectRatio="xMinYMax meet" overflow="visible">
-            <text class="title-text" x="0" y="18">Federico</text>
-        </svg>
-    </div>
-    <div id="title-2" class="title">
-        <svg viewBox="1 0 80 18" preserveAspectRatio="xMinYMax meet" overflow="visible">
-            <text class="title-text" x="0" y="18">Peyrani</text>
-        </svg>
-    </div>
-
-    <div id="padding-right-1">
-        <div class="line vertical">
-            <div class="mark left"></div>
-            <div class="label"></div>
-            <div class="mark right"></div>
-        </div>
-    </div>
-    <div id="padding-right-2">
-        <div class="line vertical">
-            <div class="mark left"></div>
-            <div class="label"></div>
-            <div class="mark right"></div>
-        </div>
-    </div>
-
-    <div id="info">
-        <div class="box">
-            <h2>Computer Science Engineer</h2>
-            <h2>Graduated at Politecnico di Milano</h2>
-        </div>
-    </div>
-</div>
-<div id="about">
-    <div class="box">
-        <p>My name is Federico Peyrani, I'm a computer science and engineer with a keen interest for design, skillful in
-            Java and most notably Kotlin. I'm currently pursuing the master level degree in Computer Science and
-            Engineering at Politecnico di Milano, Italy.</p>
-    </div>
-</div>
-<div id="contacts">
-    <ul>
-        <li>
-            <i class="im im-github"></i>
-            <a href="https://github.com/federico-peyrani" target="_blank"
-               rel="noreferrer">github.com/federico-peyrani</a>
-        </li>
-        <li>
-            <i class="im im-linkedin"></i>
-            <a href="https://www.linkedin.com/in/federicopeyrani/" target="_blank" rel="noreferrer">linkedin.com/in/federicopeyrani</a>
-        </li>
-    </ul>
 </div>
 </body>
 </html>

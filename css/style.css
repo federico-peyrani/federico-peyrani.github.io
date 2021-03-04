@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap");
 @import "typography.css";
 
 :root {
@@ -8,13 +8,16 @@
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+body, html {
+    overflow: hidden;
+}
+
 body {
-    height: 100vh;
+    height: 100%;
     background-color: var(--color-background);
 }
 
@@ -27,9 +30,154 @@ a {
     color: #FFFFFF;
 }
 
-section {
-    scroll-behavior: smooth;
+li > * {
+    display: inline-block;
+    vertical-align: middle;
 }
+
+/* region Parallax */
+
+.parallax {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+}
+
+.parallax__group {
+    position: relative;
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.parallax__layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.parallax__layer--fore {
+    z-index: 1;
+    -webkit-transform: translateZ(90px) scale(.7);
+    transform: translateZ(90px) scale(.7);
+}
+
+.parallax__layer--base {
+    z-index: 4;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.parallax__layer--back {
+    z-index: 3;
+    -webkit-transform: translateZ(-300px) scale(2);
+    transform: translateZ(-300px) scale(2);
+}
+
+.parallax__layer--deep {
+    z-index: 2;
+    -webkit-transform: translateZ(-600px) scale(3);
+    transform: translateZ(-600px) scale(3);
+}
+
+/* endregion*/
+
+/* region Parallax text styling */
+
+.parallax__text {
+    font-size: 200px;
+    font-weight: bold;
+    font-style: normal;
+    stroke: rgba(255, 255, 255, 0.06);
+    fill: none;
+    stroke-linecap: butt;
+    stroke-width: 1px;
+}
+
+.parallax__text--dark {
+    stroke: rgba(0, 0, 0, 0.06);
+}
+
+.parallax__layer--back > svg {
+    position: relative;
+    top: 50%;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/* endregion */
+
+/* region Parallax groups */
+
+#splash.parallax__group {
+    z-index: 4;
+}
+
+#splash > .parallax__layer--base {
+    background: var(--color-background);
+}
+
+#about.parallax__group {
+    z-index: 3;
+}
+
+#about > .parallax__layer--base {
+    padding: 64px;
+    color: var(--color-background);
+}
+
+#about > .parallax__layer--back {
+    background: var(--color-secondary);
+}
+
+#contacts.parallax__group {
+    z-index: 4;
+}
+
+#contacts > .parallax__layer--base {
+    padding: 64px;
+    color: white;
+    background: var(--color-primary);
+}
+
+/* endregion */
+
+/* region Parallax debug */
+
+.debug {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: .5em;
+    padding: .5em;
+    color: #fff;
+    border-radius: 0 0 5px 5px;
+    background: rgba(0, 0, 0, .85);
+}
+
+.debug-on .parallax__group {
+    -webkit-transform: translate3d(800px, 0, -800px) rotateY(30deg);
+    transform: translate3d(700px, 0, -800px) rotateY(30deg);
+}
+
+.debug-on .parallax__layer {
+    opacity: 0.9;
+    box-shadow: 0 0 0 2px #000;
+}
+
+.parallax__group {
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+}
+
+/* endregion */
+
+/* region Container */
 
 #container {
     display: grid;
@@ -64,8 +212,6 @@ section {
 }
 
 #container > #info {
-    margin-top: 64px;
-    margin-bottom: 64px;
     grid-area: info;
 }
 
@@ -77,6 +223,10 @@ section {
     grid-area: padding-right-2;
 }
 
+/* endregion */
+
+/* region Header */
+
 .navbar {
     overflow: auto;
     margin: 0 auto;
@@ -84,7 +234,7 @@ section {
 }
 
 .navbar ul {
-    display: flex; /* horizontal orientation of <li> */
+    display: flex;
 }
 
 .navbar a {
@@ -107,9 +257,13 @@ section {
     justify-content: space-between;
 }
 
+/* endregion */
+
+/* region Padding left lines */
+
 #sidebar::before, #info::after {
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     top: 0;
     display: block;
     width: 2px;
@@ -122,9 +276,13 @@ section {
     background-size: 20px 20px;
 }
 
+/* endregion */
+
+/* region Avatar */
+
 .avatar {
     position: relative;
-    z-index: 0;
+    z-index: 2;
     top: 100%;
     left: 0;
     display: flex;
@@ -144,9 +302,13 @@ section {
     min-height: 100%
 }
 
+/* endregion */
+
+/* region Title */
+
 .title {
     position: relative;
-    padding-bottom: 20%;
+    padding-bottom: 16%;
 }
 
 .title > svg {
@@ -163,9 +325,13 @@ section {
     fill: #FFFFFF;
 }
 
+/* endregion */
+
 #sidebar > div {
     float: left;
 }
+
+/* region Title baseline lines */
 
 #padding-right-1::after, #padding-right-2::after {
     position: absolute;
@@ -177,6 +343,17 @@ section {
     content: '';
     background-color: var(--color-secondary);
 }
+
+/* endregion */
+
+.box {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* region Lines */
 
 .line.horizontal {
     width: 100%;
@@ -269,32 +446,4 @@ section {
     background-color: var(--color-secondary);
 }
 
-#about {
-    padding: 64px;
-    color: var(--color-background);
-    background-color: #FFFFFF;
-}
-
-#contacts {
-    line-height: 40px;
-    padding: 64px;
-    text-align: center;
-    color: #FFFFFF;
-    background-color: var(--color-primary);
-}
-
-li > * {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.box {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#info > .box {
-    transform: translateX(-50%) translateY(-50%);
-}
+/* endregion */

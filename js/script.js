@@ -16,4 +16,14 @@ window.onload = function () {
     window.onresize = function () {
         updateLabels(lines)
     }
+
+    /** */
+    let debugInput = document.querySelector("input");
+
+    function updateDebugState() {
+        document.body.classList.toggle('debug-on', debugInput.checked);
+    }
+
+    debugInput.addEventListener("click", updateDebugState);
+    updateDebugState();
 }
