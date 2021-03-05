@@ -4,7 +4,7 @@
 :root {
     --color-primary: #002AFF;
     --color-secondary: #fff0ad;
-    --color-background: #212121;
+    --color-background: #080808;
 }
 
 * {
@@ -103,7 +103,7 @@ li > * {
 }
 
 .parallax__layer--back > svg {
-    position: relative;
+    position: absolute;
     top: 50%;
     width: 100%;
     -webkit-transform: translateY(-50%);
