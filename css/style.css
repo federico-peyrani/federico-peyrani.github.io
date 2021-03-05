@@ -69,6 +69,7 @@ li > * {
 }
 
 .parallax__layer--base {
+    position: relative;
     z-index: 4;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -135,12 +136,10 @@ li > * {
 
 #about.parallax__group {
     z-index: 3;
-    padding-bottom: 48%;
 }
 
 #about > .parallax__layer--base {
-    padding-right: 10%;
-    padding-left: 10%;
+    padding: 64px 10%;
     color: var(--color-background);
 }
 
@@ -152,11 +151,10 @@ li > * {
 
 #works.parallax__group {
     z-index: 3;
-    padding-bottom: 48%;
 }
 
 #works > .parallax__layer--base {
-    padding: 64px;
+    padding: 64px 10%;
     color: var(--color-background);
 }
 
@@ -168,11 +166,10 @@ li > * {
 
 #contacts.parallax__group {
     z-index: 4;
-    padding-bottom: 24%;
 }
 
 #contacts > .parallax__layer--base {
-    padding: 64px;
+    padding: 64px 10%;
     color: white;
 }
 
@@ -197,6 +194,7 @@ li > * {
 }
 
 .debug-on .parallax__group {
+    overflow: unset;
     -webkit-transform: translate3d(0px, 0, -4px) rotateY(0.2deg);
     transform: translate3d(0px, 0, -4px) rotateY(0.2deg);
 }
@@ -370,6 +368,10 @@ li > * {
 
 .about__text {
     margin-bottom: 1.5em;
+}
+
+.about__text--last {
+    margin-bottom: 0;
 }
 
 #sidebar > div {
