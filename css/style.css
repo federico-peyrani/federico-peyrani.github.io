@@ -23,6 +23,7 @@ body {
 
 ul {
     list-style-type: none;
+    height: 32px;
 }
 
 a {
