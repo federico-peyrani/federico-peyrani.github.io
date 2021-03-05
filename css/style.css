@@ -5,7 +5,9 @@
     --color-primary: #002AFF;
     --color-secondary: #fff0ad;
     --color-background: #080808;
-    --perspective: 2;
+    --color-title: #FFFFFF;
+    --perspective: 6;
+    --shadow: 0px 0px 10px rgba(0, 0, 0, 0.40);
 }
 
 * {
@@ -20,16 +22,6 @@ body, html {
 body {
     height: 100%;
     background-color: var(--color-background);
-}
-
-ul {
-    height: 32px;
-    list-style-type: none;
-}
-
-a {
-    text-decoration: none;
-    color: #FFFFFF;
 }
 
 li > * {
@@ -63,9 +55,11 @@ li > * {
 }
 
 .parallax__layer--fore {
-    z-index: 1;
-    -webkit-transform: translateZ(90px) scale(.7);
-    transform: translateZ(90px) scale(.7);
+    z-index: 6;
+    -webkit-transform: translateZ(calc(var(--depth) * 1px)) scale(var(--scale));
+    transform: translateZ(calc(var(--depth) * 1px)) scale(var(--scale));
+    --depth: 4; /* default value for depth, must be kept unit-less */
+    --scale: calc(((var(--perspective) - var(--depth)) / var(--perspective))); /* formula to compute scaling w.r.t. teh depth*/
 }
 
 .parallax__layer--base {
@@ -125,6 +119,7 @@ li > * {
 #splash.parallax__group {
     z-index: 4;
     height: 100vh;
+    box-shadow: var(--shadow);
 }
 
 #splash > .parallax__layer--base {
@@ -134,13 +129,17 @@ li > * {
     background: var(--color-background);
 }
 
+#splash > .parallax__layer--fore {
+    --depth: 2;
+}
+
 #about.parallax__group {
     z-index: 3;
 }
 
 #about > .parallax__layer--base {
-    padding: 64px 10%;
-    color: var(--color-background);
+    padding: 64px 10% 64px 30%;
+    color: #000000;
 }
 
 #about > .parallax__layer--back {
@@ -150,26 +149,27 @@ li > * {
 }
 
 #works.parallax__group {
-    z-index: 3;
+    z-index: 4;
+    box-shadow: var(--shadow);
 }
 
 #works > .parallax__layer--base {
     padding: 64px 10%;
-    color: var(--color-background);
+    color: #000000;
 }
 
 #works > .parallax__layer--back {
     height: 100vh;
-    background: var(--color-secondary);
-    --depth: -4;
+    background: #FFFFFF;
 }
 
 #contacts.parallax__group {
-    z-index: 4;
+    z-index: 5;
+    box-shadow: var(--shadow);
 }
 
 #contacts > .parallax__layer--base {
-    padding: 64px 10%;
+    padding: 128px 10% 128px 30%;
     color: white;
 }
 
@@ -211,13 +211,13 @@ li > * {
 
 /* endregion */
 
-#header {
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    right: 10%;
-    left: 0;
-    height: 10%;
+#info__float {
+    position: relative;
+    top: 60%;
+    right: 0;
+    bottom: 0;
+    left: 30%;
+    transform: translateY(-50%);
 }
 
 /* region Container */
@@ -266,6 +266,16 @@ li > * {
 
 /* region Header */
 
+#header {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 10%;
+    left: 0;
+    height: 10%;
+    min-height: 64px;
+}
+
 .navbar {
     overflow: auto;
     margin: 0 auto;
@@ -274,10 +284,14 @@ li > * {
 
 .navbar ul {
     display: flex;
+    height: 32px;
+    list-style-type: none;
 }
 
 .navbar a {
+    line-height: 32px;
     margin: 0 16px 0 16px;
+    text-decoration: none;
     color: #FFFFFF;
 }
 
@@ -300,13 +314,13 @@ li > * {
 
 /* region Padding left lines */
 
-#sidebar::before, #info::after {
+#sidebar::before, #info::after, p.about__text::after {
     position: absolute;
     z-index: 3;
     top: 0;
     display: block;
     width: 2px;
-    height: 100vh;
+    height: 100%;
     content: "";
     transform: translateX(-50%);
     background-image: linear-gradient(transparent 33%, var(--color-primary) 0%);
@@ -361,12 +375,13 @@ li > * {
 .title-text {
     font-weight: bold;
     font-style: normal;
-    fill: #FFFFFF;
+    fill: var(--color-title);
 }
 
 /* endregion */
 
 .about__text {
+    font-size: 1.4em;
     margin-bottom: 1.5em;
 }
 
@@ -377,6 +392,24 @@ li > * {
 #sidebar > div {
     float: left;
 }
+
+/* region Contacts */
+
+ul.social__links {
+    list-style-type: none;
+}
+
+.social__links li {
+    height: 64px;
+}
+
+.social__links a {
+    line-height: 32px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/* endregion */
 
 /* region Title baseline lines */
 
@@ -489,7 +522,7 @@ li > * {
     width: fit-content;
     padding: 2px;
     transform: translateX(-50%) translateY(-50%);
-    color: var(--color-background);
+    color: #000000;
     background-color: var(--color-secondary);
 }
 
