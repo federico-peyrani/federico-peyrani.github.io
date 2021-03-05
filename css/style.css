@@ -5,6 +5,7 @@
     --color-primary: #002AFF;
     --color-secondary: #fff0ad;
     --color-background: #080808;
+    --perspective: 2;
 }
 
 * {
@@ -42,13 +43,13 @@ li > * {
     overflow-x: hidden;
     overflow-y: auto;
     height: 100vh;
-    -webkit-perspective: 300px;
-    perspective: 300px;
+    -webkit-perspective: calc(var(--perspective) * 1px);
+    perspective: calc(var(--perspective) * 1px);
 }
 
 .parallax__group {
     position: relative;
-    height: 100vh;
+    overflow: hidden;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
@@ -75,8 +76,10 @@ li > * {
 
 .parallax__layer--back {
     z-index: 3;
-    -webkit-transform: translateZ(-300px) scale(2);
-    transform: translateZ(-300px) scale(2);
+    -webkit-transform: translateZ(calc(var(--depth) * 1px)) scale(var(--scale));
+    transform: translateZ(calc(var(--depth) * 1px)) scale(var(--scale));
+    --depth: -2; /* default value for depth, must be kept unit-less */
+    --scale: calc(((var(--perspective) - var(--depth)) / var(--perspective))); /* formula to compute scaling w.r.t. teh depth*/
 }
 
 .parallax__layer--deep {
@@ -93,10 +96,13 @@ li > * {
     font-size: 200px;
     font-weight: bold;
     font-style: normal;
-    stroke: rgba(255, 255, 255, 0.06);
     fill: none;
     stroke-linecap: butt;
-    stroke-width: 1px;
+    stroke-width: 2px;
+}
+
+.parallax__text--light {
+    stroke: rgba(255, 255, 255, 0.06);
 }
 
 .parallax__text--dark {
@@ -117,14 +123,19 @@ li > * {
 
 #splash.parallax__group {
     z-index: 4;
+    height: 100vh;
 }
 
 #splash > .parallax__layer--base {
+}
+
+#splash > .parallax__layer--back {
     background: var(--color-background);
 }
 
 #about.parallax__group {
     z-index: 3;
+    padding-bottom: 48%;
 }
 
 #about > .parallax__layer--base {
@@ -133,16 +144,23 @@ li > * {
 }
 
 #about > .parallax__layer--back {
+    height: 100vh;
     background: var(--color-secondary);
+    --depth: -4;
 }
 
 #contacts.parallax__group {
     z-index: 4;
+    padding-bottom: 24%;
 }
 
 #contacts > .parallax__layer--base {
     padding: 64px;
     color: white;
+}
+
+#contacts > .parallax__layer--back {
+    height: 100vh;
     background: var(--color-primary);
 }
 
@@ -162,8 +180,8 @@ li > * {
 }
 
 .debug-on .parallax__group {
-    -webkit-transform: translate3d(800px, 0, -800px) rotateY(30deg);
-    transform: translate3d(700px, 0, -800px) rotateY(30deg);
+    -webkit-transform: translate3d(0px, 0, -4px) rotateY(0.2deg);
+    transform: translate3d(0px, 0, -4px) rotateY(0.2deg);
 }
 
 .debug-on .parallax__layer {
