@@ -23,8 +23,8 @@ body {
 }
 
 ul {
-    list-style-type: none;
     height: 32px;
+    list-style-type: none;
 }
 
 a {
@@ -139,11 +139,28 @@ li > * {
 }
 
 #about > .parallax__layer--base {
-    padding: 64px;
+    padding-right: 10%;
+    padding-left: 10%;
     color: var(--color-background);
 }
 
 #about > .parallax__layer--back {
+    height: 100vh;
+    background: #FFFFFF;
+    --depth: -4;
+}
+
+#works.parallax__group {
+    z-index: 3;
+    padding-bottom: 48%;
+}
+
+#works > .parallax__layer--base {
+    padding: 64px;
+    color: var(--color-background);
+}
+
+#works > .parallax__layer--back {
     height: 100vh;
     background: var(--color-secondary);
     --depth: -4;
@@ -196,6 +213,15 @@ li > * {
 
 /* endregion */
 
+#header {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 10%;
+    left: 0;
+    height: 10%;
+}
+
 /* region Container */
 
 #container {
@@ -204,14 +230,10 @@ li > * {
     grid-auto-columns: 10% 20% auto 10%;
     grid-auto-rows: 10% minmax(64px, max-content) minmax(64px, max-content) auto;
     grid-template-areas:
-            "header header header padding-right-1"
+            "header-padding header-padding header-padding padding-right-1"
             "padding-left sidebar title-1 padding-right-1"
             "padding-left sidebar title-2 padding-right-2"
             "padding-left sidebar-bottom info info";
-}
-
-#container > #header {
-    grid-area: header;
 }
 
 #container > #padding-left {
@@ -345,6 +367,10 @@ li > * {
 }
 
 /* endregion */
+
+.about__text {
+    margin-bottom: 1.5em;
+}
 
 #sidebar > div {
     float: left;
