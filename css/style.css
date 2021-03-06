@@ -112,6 +112,10 @@ li > * {
     transform: translateY(-50%);
 }
 
+.parallax__layer--back svg text {
+    font-size: 96px;
+}
+
 /* endregion */
 
 /* region Parallax groups */
@@ -140,6 +144,12 @@ li > * {
 #about > .parallax__layer--base {
     padding: 64px 10% 64px 30%;
     color: #000000;
+}
+
+@media (max-width: 800px) {
+    #about > .parallax__layer--base {
+        padding: 64px 10% 64px 10%;
+    }
 }
 
 #about > .parallax__layer--back {
@@ -171,6 +181,12 @@ li > * {
 #contacts > .parallax__layer--base {
     padding: 128px 10% 128px 30%;
     color: white;
+}
+
+@media (max-width: 800px) {
+    #contacts > .parallax__layer--base {
+        padding: 128px 10% 128px 10%;
+    }
 }
 
 #contacts > .parallax__layer--back {
@@ -228,10 +244,10 @@ li > * {
     grid-auto-columns: 10% 20% auto 10%;
     grid-auto-rows: 10% minmax(64px, max-content) minmax(64px, max-content) auto;
     grid-template-areas:
-            "header-padding header-padding header-padding padding-right-1"
-            "padding-left sidebar title-1 padding-right-1"
-            "padding-left sidebar title-2 padding-right-2"
-            "padding-left sidebar-bottom info info";
+            "header-padding header-padding  header-padding  padding-right-1"
+            "padding-left   sidebar         title-1         padding-right-1"
+            "padding-left   sidebar         title-2         padding-right-2"
+            "padding-left   sidebar-bottom  info            info";
 }
 
 #container > #padding-left {
@@ -260,6 +276,23 @@ li > * {
 
 #container > #padding-right-2 {
     grid-area: padding-right-2;
+}
+
+@media (max-width: 800px) {
+    #container {
+        grid-auto-columns: 10% auto 10%;
+        grid-auto-rows: 10% 20% minmax(80px, max-content) minmax(80px, max-content) auto;
+        grid-template-areas:
+            "header-padding header-padding  padding-right-1"
+            "padding-left   sidebar         padding-right-1"
+            "padding-left   title-1         padding-right-1"
+            "padding-left   title-2         padding-right-2"
+            "padding-left   info            info";
+    }
+
+    #container > #sidebar {
+        width: 80vw;
+    }
 }
 
 /* endregion */
@@ -331,7 +364,11 @@ li > * {
 
 /* endregion */
 
-/* region Avatar */
+/* region Sidebar content */
+
+#sidebar > div {
+    float: left;
+}
 
 .avatar {
     position: relative;
@@ -353,6 +390,22 @@ li > * {
     min-width: 100%;
     height: 100%;
     min-height: 100%
+}
+
+@media (max-width: 800px) {
+    #sidebar .line.horizontal {
+        display: none;
+    }
+
+    .avatar {
+        width: unset;
+        height: 100%;
+    }
+
+    .avatar img {
+        width: unset;
+        object-fit: scale-down;
+    }
 }
 
 /* endregion */
@@ -381,16 +434,12 @@ li > * {
 /* endregion */
 
 .about__text {
-    font-size: 1.4em;
-    margin-bottom: 1.5em;
-}
-
-.about__text--last {
+    font-size: 1.2em;
     margin-bottom: 0;
 }
 
-#sidebar > div {
-    float: left;
+.about__text:not(:last-of-type) {
+    margin-bottom: 1.5em;
 }
 
 /* region Contacts */
@@ -404,9 +453,16 @@ ul.social__links {
 }
 
 .social__links a {
-    line-height: 32px;
     text-decoration: none;
     color: #FFFFFF;
+}
+
+.social__links a:hover {
+    border-bottom: 2px #FFFFFF solid;
+}
+
+.social__links i {
+    margin-right: 16px;
 }
 
 /* endregion */
